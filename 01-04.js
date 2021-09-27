@@ -72,35 +72,23 @@ function init() {
   // position the cube
 
   Cubo = []; // Definir un array unidimensional
-  
-  
-  z = 2;
-  for (i = 0; i < 5; i++) {
-      if (i%2==0){
-         Cubo.push(cubo(4, 4, 4, 0xffdd00, "Physical", false));
-      }
-      else{
-         Cubo.push(cubo(4, 4, 4, 0x00ff7f, "Standard", false));
-      }
 
-      Cubo[i].translateY(4);
-    z += 4;
+  for (i = 0; i < 5; i++) {
+    if (i % 2 == 0) {
+      Cubo.push(cubo(4, 4, 4, 0xffdd00, "Physical", false));
+    } else {
+      Cubo.push(cubo(4, 4, 4, 0x00ff7f, "Standard", false));
+    }
+
+    Cubo[i].translateY(i*4+4);
   }
-  
-  //Cubo[1].position.set(-4, 18, 0);
-  /* z = 2;
-  for (i = 0; i < 5; i++) {
-      if (i%2==0){
-         Cubo.push(cubo(4, 4, 4, 0xffdd00, "Physical", false));
-      }
-      else{
-         Cubo.push(cubo(4, 4, 4, 0x00ff7f, "Standard", false));
-      }
+  //FUENTES:
+  /*1. https://stackoverflow.com/questions/14991669/translate-along-world-axis-after-rotation-in-three-js
+  2. https://stackoverflow.com/questions/39517483/in-three-js-how-to-translate-a-vector3
+  3. https://stackoverflow.com/questions/46700593/      three-js-object-translate-and-rotate-based-on-object-self-coordinate-system-or-w
+  4. 
 
-    Cubo[i].position.set(0, z, 0);
-    z += 4;
-  } */
-
+*/
   //Luz (requerida para el material MeshLambertMaterial)
   light = new THREE.PointLight(0xffff00); //  Luz proveniente de un punto en el espacio,
   //  semejante al sol.
